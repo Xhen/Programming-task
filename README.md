@@ -7,13 +7,15 @@ Pre requirements
 Download XML file from PeppolDirectory - https://directory.peppol.eu/public. This dataset
 represents European enterprises and their capabilities to receive electronic invoices by Peppol
 infrastructure
+
 Requirements
-• Solution has to be built in Java
-• Source code must compile
-• Use a build script, preferable maven
-• Postman collection for testing all of the API methods
-• Deployment must be possible in Tomcat or Wildfly (your choice)
-• Provide deployment information (how to run it)
+- Solution has to be built in Java
+- Source code must compile
+- Use a build script, preferable maven
+- Postman collection for testing all of the API methods
+- Deployment must be possible in Tomcat or Wildfly (your choice)
+- Provide deployment information (how to run it)
+
 Your task is to develop a rest-based HTTP service for doing various queries on the XML
 dataset. Solution must be developed in Java8 or 11. You don’t need to think about security.
 You can design the architecture as you like
