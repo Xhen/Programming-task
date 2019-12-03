@@ -44,3 +44,9 @@ based on an exact match in the tag /root/businesscard/entity/name/@name
 Parameters:
 Input: Name to search for
 Output: JSON representing the value in one /root/businesscard/.
+
+
+## How to run
+mvn clean install
+
+mvn spring-boot:run
