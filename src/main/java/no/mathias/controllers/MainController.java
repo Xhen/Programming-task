@@ -1,8 +1,12 @@
 package no.mathias.controllers;
 
+import net.minidev.json.JSONObject;
 import no.mathias.importer;
 import no.mathias.model.BusinessCard;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,16 +40,23 @@ public class MainController {
     }
 
     @GetMapping("/searchByName/{name}")
-    public List<BusinessCard> searchByName(@PathVariable("name") String name) {
-        ArrayList<BusinessCard> matchedCards = new ArrayList<BusinessCard>();
+    public List<JSONObject> searchByName(@PathVariable("name") String name) {
+        ArrayList<JSONObject> matchedCards = new ArrayList<JSONObject>();
         /*
         * If the name contains the text, it should add it to the list of returns
         * */
         String upperCaseSearch = name.toUpperCase();
+
+
         for (BusinessCard bc : myCards) {
+
             Boolean matches = bc.getEntity().getName().getName().toUpperCase().contains(upperCaseSearch);
             if(matches) {
-                matchedCards.add(bc);
+                JSONObject returnObj = new JSONObject();
+                returnObj.put("Name", bc.getEntity().getName().getName());
+                returnObj.put("EnterpriseNumber", bc.getParticipant().getValue());
+                returnObj.put("CountryCode", bc.getEntity().getCountrycode());
+                matchedCards.add(returnObj);
             }
         }
         return matchedCards;
