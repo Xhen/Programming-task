@@ -36,7 +36,7 @@ public class MainController {
     }
 
     @GetMapping("/searchByName/{name}")
-    public @ResponseBody List<BusinessCard> searchByName(@PathVariable("name") String name) {
+    public List<BusinessCard> searchByName(@PathVariable("name") String name) {
         ArrayList<BusinessCard> matchedCards = new ArrayList<BusinessCard>();
         /*
         * If the name contains the text, it should add it to the list of returns
