@@ -50,3 +50,105 @@ Output: JSON representing the value in one /root/businesscard/.
 mvn clean install
 
 mvn spring-boot:run
+
+## Postman test
+Postman collection is in the /Postman folder, should be ready on import.
+
+or import manually:
+
+```
+{
+  "info": {
+    "_postman_id": "92afb19a-0516-4664-85f4-ba72de90f3d9",
+    "name": "Programming-task",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "getAll",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/getById/9956/0500497234",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "getById",
+            "9956",
+            "0500497234"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "searchByName",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/searchByName/cool",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "searchByName",
+            "cool"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getByName",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/getByName/COOLBLUE HOLDING",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "getByName",
+            "COOLBLUE HOLDING"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
+```
