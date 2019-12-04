@@ -4,6 +4,9 @@ import no.mathias.importer;
 import no.mathias.model.BusinessCard;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,14 +40,18 @@ public class MainController {
     }
 
     @GetMapping("/searchByName/{name}")
-    public List<BusinessCard> searchByName(@PathVariable("name") String name) {
-        List<BusinessCard> matchedCards = null;
+    public @ResponseBody List<BusinessCard> searchByName(@PathVariable("name") String name) {
+        ArrayList<BusinessCard> matchedCards = new ArrayList<BusinessCard>();
+        /*
+        * If the name contains the text, it should add it to the list of returns
+        * */
+        String upperCaseSearch = name.toUpperCase();
         for (BusinessCard bc : myCards) {
-            if(bc.getEntity().getName().getName().equalsIgnoreCase(name)) {
+            Boolean matches = bc.getEntity().getName().getName().toUpperCase().contains(upperCaseSearch);
+            if(matches) {
                 matchedCards.add(bc);
             }
         }
-        System.out.println("Returned list searched by name");
         return matchedCards;
     }
 
@@ -56,7 +63,6 @@ public class MainController {
                 myCard = bc;
             }
         }
-        System.out.println("Returned by name");
         return myCard;
     }
 }
