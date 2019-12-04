@@ -2,10 +2,7 @@ package no.mathias.controllers;
 
 import no.mathias.importer;
 import no.mathias.model.BusinessCard;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +12,6 @@ public class MainController {
 
     public List<BusinessCard> myCards = importer.init();
 
-    @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("/")
     public Object getAll() {
         return myCards;
